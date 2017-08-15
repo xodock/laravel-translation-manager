@@ -22,7 +22,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "dev-xodock"
+            "dev-master": "xodock"
         },
         "laravel": {
             "providers": [
