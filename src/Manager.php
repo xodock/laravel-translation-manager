@@ -31,11 +31,13 @@ class Manager{
     public function missingKey($namespace, $group, $key)
     {
         if(!in_array($group, $this->config['exclude_groups'])) {
-            Translation::firstOrCreate(array(
-                'locale' => $this->app['config']['app.locale'],
-                'group' => $group,
-                'key' => $key,
-            ));
+            foreach ($this->app['config']['languages'] as $language){
+                Translation::firstOrCreate(array(
+                    'locale' => $language->locale,
+                    'group' => $group,
+                    'key' => $key,
+                ));
+            }
         }
     }
 
