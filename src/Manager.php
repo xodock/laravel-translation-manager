@@ -156,12 +156,13 @@ class Manager{
 
             if(preg_match_all("/$stringPattern/siU", $file->getContents(), $matches)) {
                 foreach ($matches['string'] as $key) {
-                    if (preg_match("/(^[a-zA-Z0-9_-]+([.][^\1)\ ]+)+$)/siU", $key, $groupMatches)) {
+                    if (preg_match("/(^[\/a-zA-Z0-9_-]+([.][^\1)\ ]+)+$)/siU", $key, $groupMatches)) {
                         // group{.group}.key format, already in $groupKeys but also matched here
                         // do nothing, it has to be treated as a group
                         continue;
+                    } else {
+                        $stringKeys[] = $key;
                     }
-                    $stringKeys[] = $key;
                 }
             }
         }
