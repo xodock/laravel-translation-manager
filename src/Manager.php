@@ -178,9 +178,13 @@ class Manager{
         }
 
         foreach($stringKeys as $key){
-            $group = self::JSON_GROUP;
-            $item = $key;
-            $this->missingKey('', $group, $item);
+            if (!$key)
+                continue;
+            else{
+                $group = self::JSON_GROUP;
+                $item = $key;
+                $this->missingKey('', $group, $item);
+            }
         }
 
 
