@@ -172,7 +172,7 @@ class Manager{
         // Add the translations to the database, if not existing.
         foreach($groupKeys as $key) {
             // Split the group and item
-            list($group, $item) = explode('.', $key, 2);
+            list($group, $item) = explode('.', $key);
             $this->missingKey('', $group, $item);
         }
 
